@@ -12,7 +12,11 @@ A web server with two files added somewhere publically accessible.  One is a tex
 Client requirements:
 In the root of the Minecraft instance put this batch file and Npocmaka's winhttpjs.bat.  Also from that root make /config/serversync/serversync-client.cfg (putting the specific connection info for your server into that config)
 
-Process:
+Usage:
+In MultiMC, under Pre-launch command, put #INST_MC_DIR/update.bat
+In Twitch and likely most other launchers, since there's no pre-launch option, just double click the 'update.bat' file from the Minecraft root before starting the client
+
+How it works:
 The scripts works in three phases
 1) Look for, and copy the file name of any existing ServerSync jar file.  Then query the web server to find out the name of the proper version (it's currently hardcoded to https://puddle.zone/minecraft/sslatest.txt)
 2) Compare the local copy to the server version.  If they match, skip to the end and start running ServerSync in progress-only mode
