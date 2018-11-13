@@ -1,7 +1,7 @@
 # ServerSync Updater
 
 
-This batch script allows a client to automatically make sure their version of ServerSync.  This version is hard coded for my server, but maybe down the road I'll make it more variable based to allow for better ease of use.
+This batch script allows a client to automatically make sure their version of ServerSync matches the server.  This version is hard coded for my server, but maybe down the road I'll make it more variable based to allow for better ease of use.
 
 Other tools used:
 Npocmaka's winhttpjs jscript system (https://github.com/npocmaka/batch.scripts/blob/master/hybrids/jscript/winhttpjs.bat) Used under MIT license (different than this script's AGPL3)
@@ -11,6 +11,7 @@ A web server with two files added somewhere publically accessible.  One is a tex
 
 Client requirements:
 In the root of the Minecraft instance put this batch file and Npocmaka's winhttpjs.bat.  Also from that root make /config/serversync/serversync-client.cfg (putting the specific connection info for your server into that config)
+- Tip: generate a default one of these by running serversync once anywhere, it will be generated in ./config/*
 
 Usage:
 In MultiMC, under Pre-launch command, put #INST_MC_DIR/update.bat
