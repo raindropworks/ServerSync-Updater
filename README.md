@@ -14,7 +14,7 @@ In the root of the Minecraft instance put this batch file and Npocmaka's winhttp
 - Tip: generate a default one of these by running serversync once anywhere, it will be generated in ./config/*
 
 Usage:
-In MultiMC, under Pre-launch command, put #INST_MC_DIR/update.bat
+In MultiMC, under Pre-launch command, put "#INST_MC_DIR/update.bat" (quotes are necessary to prevent crashes with directory structures with spaces in them)
 In Twitch and likely most other launchers, since there's no pre-launch option, just double click the 'update.bat' file from the Minecraft root before starting the client
 
 How it works:
@@ -25,6 +25,7 @@ The scripts works in three phases
 
 TO-DO:
 - Convert more of the script to variable based to make it more customizable
+- Seperate version allowing port check of update server before launching (looking at using https://elifulkerson.com/projects/tcping.php )
 - Create a Linux Bash version of the script.  A Linux version may not require Winhttpjs because of wget and/or curl
 - Maybe make an OS agnostic version (one that can identify the OS and script with the proper syntax)
 - ...
