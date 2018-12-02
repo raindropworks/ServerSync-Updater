@@ -4,28 +4,25 @@
 This batch script allows a client to automatically make sure their version of ServerSync matches the server.  This version is hard coded for my server, but maybe down the road I'll make it more variable based to allow for better ease of use.
 
 Other tools used:
-Npocmaka's winhttpjs jscript system (https://github.com/npocmaka/batch.scripts/blob/master/hybrids/jscript/winhttpjs.bat) Used under MIT license (different than this script's AGPL3)
+Npocmaka's winhttpjs jscript system (https://github.com/npocmaka/batch.scripts/blob/master/hybrids/jscript/winhttpjs.bat) Used under MIT license (different than this script's Affero GPL)
+TCPing from Eli Fulkerson (https://elifulkerson.com/projects/tcping.php) ... I couldn't pin down the license yet, but most likely a GPL (also different than this script's Affero GPL)
 
-Server requirements:
-A web server with two files added somewhere publically accessible.  One is a text file with the simple name of the current ServerSync jar file.  The other is the jar file itself.  This jar file needs to be the same one that is being used on the server hosting the minecraft mods.
-
-Client requirements:
-In the root of the Minecraft instance put this batch file and Npocmaka's winhttpjs.bat.  Also from that root make /config/serversync/serversync-client.cfg (putting the specific connection info for your server into that config)
-- Tip: generate a default one of these by running serversync once anywhere, it will be generated in ./config/*
+For configuration, check the 'Installation and use.txt' file
 
 Usage:
 In MultiMC, under Pre-launch command, put "#INST_MC_DIR/update.bat" (quotes are necessary to prevent crashes with directory structures with spaces in them)
 In Twitch and likely most other launchers, since there's no pre-launch option, just double click the 'update.bat' file from the Minecraft root before starting the client
 
 How it works:
-The scripts works in three phases
-1) Look for, and copy the file name of any existing ServerSync jar file.  Then query the web server to find out the name of the proper version (it's currently hardcoded to https://puddle.zone/minecraft/sslatest.txt)
-2) Compare the local copy to the server version.  If they match, skip to the end and start running ServerSync in progress-only mode
-3) If they don't match, download the correct version, delete the old version, and then start ServerSync in progress-only mode
+The does a number of things
+1) Look for, and copy the file name of any existing ServerSync jar file as well as a configuration file.  Then query the web server to find out the name of the proper version 
+2) Compare the local copy to the server version and update if needed
+3) Download and use TCping if the Live Scan option is enabled to make sure the server is ready before launching ServerSync
+4) Start ServerSync and update the files on the client to match the server
 
 TO-DO:
-- Convert more of the script to variable based to make it more customizable
-- Seperate version allowing port check of update server before launching (looking at using https://elifulkerson.com/projects/tcping.php )
+- Convert more of the script to variable based to make it more customizable - done
+- Seperate version allowing port check of update server before launching (looking at using https://elifulkerson.com/projects/tcping.php ) - done
 - Create a Linux Bash version of the script.  A Linux version may not require Winhttpjs because of wget and/or curl
 - Maybe make an OS agnostic version (one that can identify the OS and script with the proper syntax)
 - ...

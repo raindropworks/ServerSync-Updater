@@ -1,0 +1,39 @@
+Minimum client file requirements for first boot:
+
+\ Minecraft instance folder
+	- update.bat
+	- winhttpjs.bat
+
+Specific file information:
+--------------------------
+Update.bat is the update file in this repository
+Winhttpjs.bat is available from https://github.com/npocmaka/batch.scripts/blob/master/hybrids/jscript/winhttpjs.bat under MIT license
+
+Webserver file structure requirements:
+
+\ host variable (i.e. https://puddle.zone)
+	\ public_files_dir (i.e. minecraft)
+		\ serversync-x.x.xx.jar
+		\ serversync-client.cfg (Normally created by ServerSync on first run, but uses localhost as the domain)
+		\ sslatest.txt (simple text file with the filename of the current version of ServerSync)
+
+Specific file information:
+--------------------------
+serversync-x.x.xx.jar is whatever the current version available on Curseforge at https://minecraft.curseforge.com/projects/serversync
+serversync-client.cfg is normally created by ServerSync if it doesn't already exist, however it doesn't have the correct information for clients, so we have to pre-build a custom version
+	- 1) Start serversync somewhere on a local machine to generate a default configuration file
+	- 2) Open the serversync-client.cfg file that was made (it will be in the /config/serversync folder under the jar file)
+	- 3) Replace SERVER_IP and SERVER_PORT with the domain of your Minecraft server and the port you've assigned ServerSync on the server (defaults are 127.0.0.1 and 38067 respectively)
+sslatest.txt is a text file with only the name of the serversync jar file listed above.  For instance, at time of writing, the current filename would be serversync-2.6.17.jar, so the contents of the text file whould be a single line with "serversync-2.6.17.jar" (no quotes).  Remember, as with any URI, it is case sensitive
+
+Installation and use:
+1) Make a local copy of update.bat and edit the variables in the beginning of the script to match your Minecraft instance 
+2) Package the update.bat and winhttpjs.bat files for the client to use
+3) Add the appropriate files to your webserver as descripbed above
+4) Add and configure ServerSync for your Minecraft server.
+
+Upgrade instrucions:
+1) Replace the ServerSync file on the webserver
+2) Edit the sslatest.txt file on the webserver to reflect the name of the new version
+3) Upgrade ServerSync on the Minecraft instance.
+4) That's it!  The next time a client connects, they'll automatically update their ServerSync before launching updates.
