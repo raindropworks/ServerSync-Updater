@@ -1,8 +1,8 @@
 Minimum client file requirements for first boot:
 
 \ Minecraft instance folder
-	- update.bat
-	- winhttpjs.bat
+	\ update.bat
+	\ winhttpjs.bat
 
 Specific file information:
 --------------------------
