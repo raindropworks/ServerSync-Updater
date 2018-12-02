@@ -13,6 +13,10 @@ Usage:
 In MultiMC, under Pre-launch command, put "#INST_MC_DIR/update.bat" (quotes are necessary to prevent crashes with directory structures with spaces in them)
 In Twitch and likely most other launchers, since there's no pre-launch option, just double click the 'update.bat' file from the Minecraft root before starting the client
 
+In case of errors:
+In MultiMC, if there's a error, it's usually a missing file somewhere else, and the script will tell you in the console window.  You'll have to use the 'Kill' button in the MultiMC instance to close the script
+In other launchers, the command prompt will stay open with the error information until the user presses a key to close the script.
+
 How it works:
 The does a number of things
 1) Look for, and copy the file name of any existing ServerSync jar file as well as a configuration file.  Then query the web server to find out the name of the proper version 
