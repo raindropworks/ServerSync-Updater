@@ -109,6 +109,7 @@ if %ss_live_scan% == True (
 			exit /b
 		)
 	)
+	echo Checking to see if server is available
 	tcping.exe -n 1 %sshost% %ssport% > log.tmp
 	rem check to see if port is open
 	>nul find "Port is open" log.tmp &&(
