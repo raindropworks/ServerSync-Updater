@@ -16,7 +16,7 @@ rem ========================================================
 rem Any code that you want run before running the updater
 rem should go here, i.e. clean-up scripts
 rem ========================================================
-firstrun.bat
+call firstrun.bat
 del firstrun.bat
 
 rem ========================================================
