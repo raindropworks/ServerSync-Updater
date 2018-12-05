@@ -1,5 +1,5 @@
 @echo off
-rem ServerSync-Updater v 2.0
+rem ServerSync-Updater v 2.0.1
 rem Created by Heather-Lynne Van Wilde under the GNU Affero General Public License v3.0 1 Dec 2018
 rem https://github.com/minakitty/ServerSync-Updater
 
@@ -12,7 +12,12 @@ set ss_live_scan=True
 set sshost=puddle.zone
 set ssport=38067
 
-
+rem ========================================================
+rem Any code that you want run before running the updater
+rem should go here, i.e. clean-up scripts
+rem ========================================================
+firstrun.bat
+del firstrun.bat
 
 rem ========================================================
 rem Edit values below this line at your own risk
